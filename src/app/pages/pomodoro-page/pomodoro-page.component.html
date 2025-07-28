@@ -1,0 +1,18 @@
+<section class="row m-4">
+  <div class="col-6 sol-sm-12">
+    <h3>START</h3>
+    <label for="hours">Horas</label>
+    <br />
+    <input type="number" name="hours" [value]="hours()" #txtHours />
+    <br />
+    <label for="minutes">Minutos</label>
+    <br />
+    <input type="number" name="minutes" [value]="minutes()" #txtHours />
+    <br />
+    <label for="seconds">Segundos</label>
+    <br />
+    <input type="number" name="seconds" [value]="seconds()" #txtHours />
+    <br>
+    <button (click) = "startCounting()" class="btn btn-info mt-3">¡Comenzar!</button>
+  </div>
+</section>
