@@ -1,18 +1,23 @@
-<section class="row m-4">
-  <div class="col-6 sol-sm-12">
-    <h3>START</h3>
-    <label for="hours">Horas</label>
-    <br />
-    <input type="number" name="hours" [value]="hours()" #txtHours />
-    <br />
-    <label for="minutes">Minutos</label>
-    <br />
-    <input type="number" name="minutes" [value]="minutes()" #txtHours />
-    <br />
-    <label for="seconds">Segundos</label>
-    <br />
-    <input type="number" name="seconds" [value]="seconds()" #txtHours />
-    <br>
-    <button (click) = "startCounting()" class="btn btn-info mt-3">¡Comenzar!</button>
+<section class="d-flex justify-content-center align-items-center vh-100">
+  <div class="row w-100">
+    <div class="col-12 col-lg-6 mx-auto text-center">
+      <h3>POMODORO</h3>
+
+      <label for="hours">Horas</label><br />
+      <input type="number" name="hours" [value]="hours()" #txtHours class="form-control mb-2" />
+
+      <label for="minutes">Minutos</label><br />
+      <input type="number" name="minutes" [value]="minutes()" #txtMinutes class="form-control mb-2" />
+
+      <label for="seconds">Segundos</label><br />
+      <input type="number" name="seconds" [value]="seconds()" #txtSeconds class="form-control mb-2" />
+
+      <div class="mt-3">
+        <button (click)="startCounting()" class="btn btn-info">¡Comenzar!</button>
+        <button (click)="stopCounting()" class="btn btn-danger ms-3">Arrête!</button>
+      </div>
+
+      <h4 class="mt-4">{{ secondsPlusOne() }}</h4>
+    </div>
   </div>
 </section>

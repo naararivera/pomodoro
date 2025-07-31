@@ -1,0 +1,21 @@
+
+
+.notebook-background {
+  background-color: #FFF4A4; /* base clarita como papel */
+  color: #656356;
+  background-image:
+    linear-gradient(to bottom,#c7c2a5b4 1.3px, transparent 0),
+   linear-gradient(to right, rgba(221, 63, 89, 0.3) 2px, transparent 0);
+  background-size:
+    100% 30px; /* rayas horizontales cada 30px */
+  background-position: 5rem 0; /* la línea vertical a 40px desde la izquierda */
+  min-height: 100vh;
+}
+
+ul li {
+  height: 30px;
+  line-height: 30px;    
+  margin: 0;            
+  padding-left: 5.2rem;  
+  list-style: none;
+}
