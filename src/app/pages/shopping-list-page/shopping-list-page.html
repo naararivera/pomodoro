@@ -1,0 +1,29 @@
+<div class="justify-content-center align-items-center vh-100 text-center notebook-background">
+<h4>Shopping List</h4>
+
+<section class="row w-100 ps-5 pt-4">
+    <div class="col-12 col-lg-6 mx-auto">
+        <!-- <h5 class="">Agregar: </h5> -->
+        <input type="text" class="form-control" placeholder="Producto">
+        <input type="number" class="form-control mt-2" placeholder="Precio">
+
+        <button class="btn btn-info mt-3">
+            Agregar
+        </button>
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <ul>
+            @for(product of products(); track product.id; let idx = $index){
+            <li>
+                <input type="checkbox" name="" id="">
+                <span> {{ product.name }}</span>
+                <strong [class.text-danger]="product.price> 2"
+                    [class.text-info]="product.price<=2"> - {{ product.price | currency:'EUR':'symbol'}}</strong>
+            </li>
+            }
+        </ul>
+    </div>
+
+</section>
+</div>

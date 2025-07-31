@@ -13,15 +13,27 @@ interface Contador {
   styleUrl: './pomodoro-page.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
+export class PomodoroPageComponent {
+  hours = signal(0);
+  minutes = signal(0);
+  seconds = signal(0);
 
-export class PomodoroPageComponent { 
+  secondsPlusOne = signal(0);
+  count = false;
 
-hours = signal(0);  
-minutes = signal(0);
-seconds = signal(0);
+  startCounting(): void {
+    // this.hours.update((value) => value + 1);
+    // this.minutes.update((value) => value + 1);
+    // this.seconds.update((value) => value + 1);
+    //this.secondsPlusOne.update(value=>value+1);
+    // this.lastValue = setInterval(() => {
+    //   this.count = true;
+    //   this.secondsPlusOne.update((n) => n + 1); // actualiza 1 vez por segundo
+    // }, 1000);
 
-
-startCounting(): void{
-  
-}
+  }
+  stopCounting(): void {
+    // this.count = false;
+    // this.secondsPlusOne.update((value)=> this.lastValue);
+  }
 }

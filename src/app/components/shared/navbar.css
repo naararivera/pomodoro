@@ -1,0 +1,28 @@
+    nav{
+        display: flex;
+        justify-content: space-around;
+        background-color: #78C841;
+        color: #3E5F44;
+        padding: 10px;
+    }
+    nav a{
+        color: #5E936C;
+        text-decoration: none;
+    }
+    
+    nav a.active{
+        color: #cef1cf;
+    }
+
+    .shopping-navbar{
+        background-color: #FFF9BD;
+        color: #065084;
+    }
+
+    .shopping-navbar a{
+        color: #065084;
+    }
+
+       .shopping-navbar a.active{
+        color: #3D74B6;
+    }
