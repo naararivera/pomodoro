@@ -1,0 +1,27 @@
+<h5 class="">Agregar {{ name() }}</h5>
+<input
+  type="text"
+  class="form-control mb-2"
+  placeholder="Producto"
+  [value]="name()"
+  (input)="name.set(txtName.value)"
+  #txtName
+/>
+<select #txtCategory class="form-select">
+  <option value="" disabled selected hidden>Categoría</option>
+  <option value="fruta">Fruta</option>
+  <option value="verdura">Verdura</option>
+  <option value="otro">Otro</option>
+</select>
+<input
+  type="number"
+  class="form-control mt-2"
+  [value]="price()"
+  (input)="price.set(+txtPrice.value)"
+  placeholder="Precio"
+  #txtPrice
+/>
+
+<button class="btn btn-info mt-3" (click)="addProduct(txtCategory.value)">
+  Agregar
+</button>
