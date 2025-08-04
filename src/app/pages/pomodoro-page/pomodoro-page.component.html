@@ -4,20 +4,30 @@
       <h3>POMODORO</h3>
 
       <label for="hours">Horas</label><br />
-      <input type="number" name="hours" [value]="hours()" #txtHours class="form-control mb-2" />
+      <input type="number" name="hours" 
+      [value]="hours()" 
+      (input)="hours.set(+txtHours.value)"
+      #txtHours class="form-control mb-2" />
 
       <label for="minutes">Minutos</label><br />
-      <input type="number" name="minutes" [value]="minutes()" #txtMinutes class="form-control mb-2" />
+      <input type="number" name="minutes" 
+      [value]="minutes()" 
+      (input)="minutes.set(+txtMinutes.value)"
+      #txtMinutes class="form-control mb-2" />
 
       <label for="seconds">Segundos</label><br />
-      <input type="number" name="seconds" [value]="seconds()" #txtSeconds class="form-control mb-2" />
+      <input type="number" name="seconds" 
+      [value]="seconds()"
+      (input)="seconds.set(+txtSeconds.value)" 
+      #txtSeconds class="form-control mb-2" />
 
       <div class="mt-3">
         <button (click)="startCounting()" class="btn btn-info">¡Comenzar!</button>
         <button (click)="stopCounting()" class="btn btn-danger ms-3">Arrête!</button>
+        <button (click) ="restart()" class="btn btn-info ms-3">Reiniciar</button>
       </div>
 
-      <h4 class="mt-4">{{ secondsPlusOne() }}</h4>
+      <h4 class="mt-4">{{ formattedTime() }}</h4>
     </div>
   </div>
 </section>

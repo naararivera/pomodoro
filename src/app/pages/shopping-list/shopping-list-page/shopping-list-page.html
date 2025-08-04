@@ -1,0 +1,52 @@
+<div
+  class="justify-content-center align-items-center vh-100 text-center notebook-background"
+>
+  <h4>Shopping List</h4>
+
+  <section class="row w-100 ps-5 pt-4">
+    <div class="col-12 col-lg-6 mx-auto">
+      <h5 class="">Agregar {{name()}} </h5>
+      <input type="text" class="form-control mb-2" placeholder="Producto" 
+      [value]="name()" (input)="name.set(txtName.value)" #txtName/>
+      <select #txtCategory class="form-select">
+        <option value="" disabled selected hidden>Categoría</option>
+        <option value="fruta">Fruta</option>
+        <option value="verdura">Verdura</option>
+        <option value="otro">Otro</option>
+      </select>
+      <input type="number" class="form-control mt-2" 
+      [value]="price()" (input)="price.set(+txtPrice.value)"
+      placeholder="Precio" #txtPrice/>
+
+      <button class="btn btn-info mt-3" 
+      (click)="addProduct(txtCategory.value)">
+      Agregar</button>
+    </div>
+
+    <div class="col-12 col-lg-6">
+        <h5>Frutas</h5>
+      <ul>
+        @for(product of products(); track product.id; let idx = $index){
+            @if(product.category === 'fruta'){
+        <li>
+          <input type="checkbox" name="" id="" />
+          <span> {{product.name }}</span>
+          <strong
+            [class.text-danger]="product.price > 2"
+            [class.text-info]="product.price <= 2"
+          >
+            - {{ product.price | currency : "EUR" : "symbol" }}</strong
+          >
+        </li>
+        } @else{
+            <li>
+                <input type="checkbox" name="" id="" />
+                {{product.name}} ({{product.category}} - {{ product.price | currency : "EUR" : "symbol" }}
+           )</li>
+        }
+        
+}
+      </ul>
+    </div>
+  </section>
+</div>

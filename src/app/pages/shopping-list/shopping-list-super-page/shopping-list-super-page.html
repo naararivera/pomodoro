@@ -1,0 +1,16 @@
+<div
+  class="justify-content-center align-items-center vh-100 text-center notebook-background"
+>
+    <section class="row w-100 ps-5 pt-4">
+    <div class="col-12 col-lg-6 mx-auto">
+      <add-product
+      (newProduct)="shoppingListService.addProduct($event)"
+      />
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <product-list listName="Frutas"
+       [products]="shoppingListService.products()" />
+    </div>
+  </section>
+</div>
