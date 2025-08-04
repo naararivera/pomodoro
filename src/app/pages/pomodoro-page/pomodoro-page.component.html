@@ -3,31 +3,57 @@
     <div class="col-12 col-lg-6 mx-auto text-center">
       <h3>POMODORO</h3>
 
-      <label for="hours">Horas</label><br />
-      <input type="number" name="hours" 
-      [value]="hours()" 
-      (input)="hours.set(+txtHours.value)"
-      #txtHours class="form-control mb-2" />
+      <h1 class="mt-4">{{ formattedTime() }}</h1>
 
-      <label for="minutes">Minutos</label><br />
-      <input type="number" name="minutes" 
-      [value]="minutes()" 
-      (input)="minutes.set(+txtMinutes.value)"
-      #txtMinutes class="form-control mb-2" />
+      <!-- Inputs responsivos -->
+      <div class="row g-3 mt-3">
+        <div class="col-12 col-md-4">
+          <label for="hours" class="form-label">Horas</label>
+          <input
+            type="number"
+            name="hours"
+            [value]="hours()"
+            (input)="hours.set(+txtHours.value)"
+            #txtHours
+            class="form-control text-center"
+          />
+        </div>
 
-      <label for="seconds">Segundos</label><br />
-      <input type="number" name="seconds" 
-      [value]="seconds()"
-      (input)="seconds.set(+txtSeconds.value)" 
-      #txtSeconds class="form-control mb-2" />
+        <div class="col-12 col-md-4">
+          <label for="minutes" class="form-label">Minutos</label>
+          <input
+            type="number"
+            name="minutes"
+            [value]="minutes()"
+            (input)="minutes.set(+txtMinutes.value)"
+            #txtMinutes
+            class="form-control text-center"
+          />
+        </div>
 
-      <div class="mt-3">
-        <button (click)="startCounting()" class="btn btn-info">¡Comenzar!</button>
-        <button (click)="stopCounting()" class="btn btn-danger ms-3">Arrête!</button>
-        <button (click) ="restart()" class="btn btn-info ms-3">Reiniciar</button>
+        <div class="col-12 col-md-4">
+          <label for="seconds" class="form-label">Segundos</label>
+          <input
+            type="number"
+            name="seconds"
+            [value]="seconds()"
+            (input)="seconds.set(+txtSeconds.value)"
+            #txtSeconds
+            class="form-control text-center"
+          />
+        </div>
       </div>
 
-      <h4 class="mt-4">{{ formattedTime() }}</h4>
+      <!-- Botones -->
+      <div class="mt-4">
+        <button (click)="startCounting()" class="btn btn-info btn-lg">
+          ¡Comenzar!
+        </button>
+        <button (click)="stopCounting()" class="btn btn-danger ms-3 btn-lg">
+          Arrête!
+        </button>
+        <button (click)="restart()" class="btn btn-warning ms-3 btn-lg">Reiniciar</button>
+      </div>
     </div>
   </div>
 </section>

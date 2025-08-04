@@ -27,24 +27,46 @@ export class PomodoroPageComponent {
 
   count = false;
 
+  alarm = new Audio('assets/alarm.mp3');
+
   startCounting(): void {
     if (this.intervalId !== null) return;
 
     this.count = true;
 
     this.intervalId = setInterval(() => {
-      this.seconds.update((n) => n + 1); //Sumamos 1 cada segundo
+      const h = this.hours();
+      const m = this.minutes();
+      const s = this.seconds();
 
-      if (this.seconds() >= 60) {
-        this.seconds.set(0);
-        this.minutes.update((n) => n + 1);
+      // Si el contador ya llegó a 00:00:00, detenemos
+      if (h === 0 && m === 0 && s === 0) {
+        this.stopCounting();
+        this.alarm.play().catch((err) => {
+          console.warn('No se pudo reproducir el sonido:', err);
+        });
+        return;
       }
 
-      if (this.minutes() >= 60) {
-        this.minutes.set(0);
-        this.hours.update((n) => n + 1);
+      if (s > 0) {
+        this.seconds.update((n) => n - 1);
+      } else {
+        this.seconds.set(59);
+
+        if (m > 0) {
+          this.minutes.update((n) => n - 1);
+        } else {
+          if (h > 0) {
+            this.minutes.set(59);
+            this.hours.update((n) => n - 1);
+          } else {
+            this.seconds.set(0);
+            this.minutes.set(0);
+            this.hours.set(0);
+          }
+        }
       }
-    }, 1000); //cada 1 segundo se actualizan los valores
+    }, 1000);
   }
 
   stopCounting(): void {
@@ -65,7 +87,8 @@ export class PomodoroPageComponent {
     return value.toString().padStart(2, '0');
   }
 
-  formattedTime = computed(() =>
+  formattedTime = computed(
+    () =>
       `${this.pad(this.hours())} : ${this.pad(this.minutes())} : ${this.pad(
         this.seconds()
       )}`
